@@ -1,11 +1,15 @@
 import ButtonList from "./ButtonList";
+import Sidebar from "./SideBar";
 import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   return (
-    <div className="col-span-11">
-      <ButtonList />
-      <VideoContainer />
+    <div className="flex">
+      {/* <Sidebar /> */}
+      <div>
+        <ButtonList />
+        <VideoContainer />
+      </div>
     </div>
   );
 };

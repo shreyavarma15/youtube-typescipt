@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import "../../src/App.css";
+import { SideBarContext, SideBarContextType } from "../App";
 
 const Head: React.FC = () => {
+  const { isExpanded, setIsExpanded } =
+    useContext<SideBarContextType>(SideBarContext);
+
   return (
     <div className="flex p-4 justify-between m-2 shadow-lg">
       <div className="flex">
         <img
+          onClick={() => setIsExpanded(!isExpanded)}
           alt="menu"
           className="h-8 hover:cursor-pointer"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png"
