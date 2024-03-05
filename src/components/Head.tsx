@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "../../src/App.css";
 import { SideBarContext, SideBarContextType } from "../App";
+import { Link } from "react-router-dom";
 
 const Head: React.FC = () => {
   const { isExpanded, setIsExpanded } =
@@ -15,11 +16,13 @@ const Head: React.FC = () => {
           className="h-8 hover:cursor-pointer"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png"
         />
-        <img
-          alt="logo"
-          className="h-8 ml-3 px-2"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
-        />
+        <Link to="/">
+          <img
+            alt="logo"
+            className="h-8 ml-3 px-2"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
+          />
+        </Link>
       </div>
       <div className="w-[100%]">
         <div className="w-[100%] flex justify-center">

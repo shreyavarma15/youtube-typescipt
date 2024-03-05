@@ -46,7 +46,6 @@ function App() {
   return (
     <SideBarContext.Provider value={{ isExpanded, setIsExpanded }}>
       <div className="App">
-        <Head />
         <RouterProvider router={appRouter} />
       </div>
     </SideBarContext.Provider>
