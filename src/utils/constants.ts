@@ -15,3 +15,82 @@ export const BUTTON_LIST = [
   "Computer Programming",
   "Mantras",
 ];
+
+export const COMMENTS_DATA = [
+  {
+    name: "Shreya Varma",
+    text: "Lorem Ipsum dolar est se la vida",
+    replies: [
+      {
+        name: "Shreya Varma",
+        text: "Lorem Ipsum dolar est se la vida",
+        replies: [
+          {
+            name: "Shreya Varma",
+            text: "Lorem Ipsum dolar est se la vida",
+            replies: [],
+          },
+          {
+            name: "Shreya Varma",
+            text: "Lorem Ipsum dolar est se la vida",
+            replies: [],
+          },
+        ],
+      },
+      {
+        name: "Shreya Varma",
+        text: "Lorem Ipsum dolar est se la vida",
+        replies: [],
+      },
+    ],
+  },
+  {
+    name: "Shreya Varma",
+    text: "Lorem Ipsum dolar est se la vida",
+    replies: [],
+  },
+  {
+    name: "Shreya Varma",
+    text: "Lorem Ipsum dolar est se la vida",
+    replies: [
+      {
+        name: "Shreya Varma",
+        text: "Lorem Ipsum dolar est se la vida",
+        replies: [
+          {
+            name: "Shreya Varma",
+            text: "Lorem Ipsum dolar est se la vida",
+            replies: [],
+          },
+          {
+            name: "Shreya Varma",
+            text: "Lorem Ipsum dolar est se la vida",
+            replies: [
+              {
+                name: "Shreya Varma",
+                text: "Lorem Ipsum dolar est se la vida",
+                replies: [
+                  {
+                    name: "Shreya Varma",
+                    text: "Lorem Ipsum dolar est se la vida",
+                    replies: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Shreya Varma",
+    text: "Lorem Ipsum dolar est se la vida",
+    replies: [],
+  },
+  {
+    name: "Shreya Varma",
+    text: "Lorem Ipsum dolar est se la vida",
+    replies: [],
+  },
+];
