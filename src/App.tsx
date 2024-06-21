@@ -9,7 +9,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./components/Body";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
-import Head from "./components/Head";
+import store from "./utils/store";
+import { Provider } from "react-redux";
 
 export interface SideBarContextType {
   isExpanded: boolean;
@@ -44,11 +45,13 @@ function App() {
   const [isExpanded, setIsExpanded] = useState<boolean>(true);
 
   return (
-    <SideBarContext.Provider value={{ isExpanded, setIsExpanded }}>
-      <div className="App">
-        <RouterProvider router={appRouter} />
-      </div>
-    </SideBarContext.Provider>
+    <Provider store={store}>
+      <SideBarContext.Provider value={{ isExpanded, setIsExpanded }}>
+        <div className="App">
+          <RouterProvider router={appRouter} />
+        </div>
+      </SideBarContext.Provider>
+    </Provider>
   );
 }
 
