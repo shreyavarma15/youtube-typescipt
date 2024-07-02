@@ -11,12 +11,10 @@ import LiveChat from "./LiveChat";
 const WatchPage = () => {
   const [queryParams] = useSearchParams();
 
-  const commentsWithCount = addReplyCount(COMMENTS_DATA);
   const chatMessages = useSelector((store: RootState) => store.chat.messages);
   const dispatch = useDispatch();
+  const commentsWithCount = addReplyCount(COMMENTS_DATA);
   const [liveMessage, setLiveMessage] = useState("");
-
-  console.log("chatMessages", chatMessages);
 
   //API POLLING
   useEffect(() => {

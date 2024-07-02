@@ -38,38 +38,50 @@ export const addReplyCount = (comments: RawCommentData[]): CommentData[] => {
 const CommentList = (props: CommentListProps) => {
   const { commentsData } = props;
 
-  const [showComments, setShowComments] = useState(false);
+  const [expandedComments, setExpandedComments] = useState<number[]>([]);
 
-  return commentsData.map((comment, index) => (
-    <div key={index}>
-      <Comment data={comment} />
+  const toggleComments = (index: number) => {
+    setExpandedComments((prevExpanded) =>
+      prevExpanded.includes(index)
+        ? prevExpanded.filter((i) => i !== index)
+        : [...prevExpanded, index]
+    );
+  };
 
-      {comment.replyCount > 0 && (
-        <div
-          onClick={() => setShowComments(!showComments)}
-          className="flex items-center cursor-pointer w-fit hover:bg-blue-100 p-2 rounded-3xl"
-        >
-          {showComments ? (
-            <ChevronUp className="fill-blue-600" />
-          ) : (
-            <ChevronDown className="fill-blue-600" />
-          )}
+  return commentsData.map((comment, index) => {
+    const isExpanded = expandedComments.includes(index);
 
-          <span className="ml-2 text-blue-600">
-            {comment.replyCount} Replies:
-          </span>
-        </div>
-      )}
+    return (
+      <div key={index}>
+        <Comment data={comment} />
 
-      {showComments && (
-        <div className="pl-5 border-l-4 ml-6">
-          {comment.replies && comment.replies.length > 0 && (
-            <CommentList commentsData={comment.replies} />
-          )}
-        </div>
-      )}
-    </div>
-  ));
+        {comment.replyCount > 0 && (
+          <div
+            onClick={() => toggleComments(index)}
+            className="flex items-center cursor-pointer w-fit hover:bg-blue-100 p-2 rounded-3xl"
+          >
+            {isExpanded ? (
+              <ChevronUp className="fill-blue-600" />
+            ) : (
+              <ChevronDown className="fill-blue-600" />
+            )}
+
+            <span className="ml-2 text-blue-600">
+              {comment.replyCount} Replies:
+            </span>
+          </div>
+        )}
+
+        {isExpanded && (
+          <div className="pl-5 border-l-4 ml-6">
+            {comment.replies && comment.replies.length > 0 && (
+              <CommentList commentsData={comment.replies} />
+            )}
+          </div>
+        )}
+      </div>
+    );
+  });
 };
 
 export default CommentList;
